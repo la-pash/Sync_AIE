@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Sync Project</string>
     <string name="add_employee">Add</string>
+    <string name="first_name_pl">First Name</string>
+    <string name="last_name_pl">Last Name</string>
+    <string name="email_pl">employee@aie.com</string>
+    <string name="id_pl">ID 969</string>
+    <string name="hired_date_pl">Hired Date: 2022/08/05</string>
+    <string name="last_updated_pl">Last updated : 20 mn ago</string>
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_padding_xy">10dp</dimen>
+    <dimen name="card_margin_y">10dp</dimen>
+    <dimen name="card_fields_mg_y">5dp</dimen>
+</resources>

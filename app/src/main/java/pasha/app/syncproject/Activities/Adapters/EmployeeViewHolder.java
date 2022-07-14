@@ -13,12 +13,12 @@ class EmployeeViewHolder extends RecyclerView.ViewHolder {
 
     private EmployeeViewHolder(View itemView) {
         super(itemView);
-        email = itemView.findViewById(R.id.textView);
-        firstName = itemView.findViewById(R.id.textView);
-        lastName = itemView.findViewById(R.id.textView);
-        lastUpdated = itemView.findViewById(R.id.textView);
-        hiredDate = itemView.findViewById(R.id.textView);
-        employeeId = itemView.findViewById(R.id.textView);
+        email = itemView.findViewById(R.id.email);
+        firstName = itemView.findViewById(R.id.first_name);
+        lastName = itemView.findViewById(R.id.last_name);
+        lastUpdated = itemView.findViewById(R.id.last_updated);
+        hiredDate = itemView.findViewById(R.id.hired_date);
+        employeeId = itemView.findViewById(R.id.employee_id);
     }
 
     public void bind(Employee employee) {
