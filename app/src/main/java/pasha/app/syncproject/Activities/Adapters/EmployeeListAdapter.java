@@ -20,6 +20,7 @@ public class EmployeeListAdapter extends RecyclerView.Adapter<EmployeeViewHolder
     // Method used to update adapter list
     // with data fetched from api
     public void updateList(List<Employee> list) {
+        this.list.clear();
         this.list = list;
     }
 
