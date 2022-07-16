@@ -2,14 +2,13 @@ package pasha.app.syncproject.Repositories.External;
 
 import android.app.Application;
 import android.content.Context;
-import android.widget.Toast;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import pasha.app.syncproject.Repositories.External.Retrofit.EmployeeApiInterface;
 import pasha.app.syncproject.Repositories.External.Retrofit.RetrofitInstance;
@@ -51,8 +50,10 @@ public class EmployeeWorker extends Worker {
                 // still the response we want is not guaranteed so far .
                 // e.g response 404 is still considered a response
                 if(!response.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Code : "+response.code(),
-                            Toast.LENGTH_SHORT).show();
+
+                    // OFTEN IT GIVES CODE 429
+                    // TOO MANY REQUESTS
+                    Log.e("onResponse with Error", String.valueOf(response.code()));
                     return;
                 }
 
@@ -78,7 +79,7 @@ public class EmployeeWorker extends Worker {
 
             @Override
             public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("OnFailure", t.getMessage());
             }
         });
 

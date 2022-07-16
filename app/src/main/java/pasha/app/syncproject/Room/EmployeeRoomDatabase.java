@@ -9,6 +9,7 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import pasha.app.syncproject.R;
 import pasha.app.syncproject.Room.Daos.EmployeeDao;
 import pasha.app.syncproject.Room.Entities.Employee;
 
@@ -27,7 +28,7 @@ public abstract class EmployeeRoomDatabase extends RoomDatabase {
             synchronized (EmployeeRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            EmployeeRoomDatabase.class, "employee_database")
+                            EmployeeRoomDatabase.class, context.getString(R.string.db_name))
                             .build();
                 }
             }

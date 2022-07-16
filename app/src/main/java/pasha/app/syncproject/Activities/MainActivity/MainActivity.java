@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import pasha.app.syncproject.Activities.Adapters.EmployeeListAdapter;

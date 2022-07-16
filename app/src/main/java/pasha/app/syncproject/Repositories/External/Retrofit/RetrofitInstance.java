@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 // Create 1 instance of retrofit for whole app .
 // Note that the api link is hardcoded here
-// for the sake of this coding assesement and scalabality of this
+// for the sake of this coding assesement and scalability of this
 // project
 public class RetrofitInstance {
 
