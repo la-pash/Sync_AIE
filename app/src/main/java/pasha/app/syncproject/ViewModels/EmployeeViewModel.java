@@ -4,6 +4,8 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.work.Constraints;
+import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
@@ -30,9 +32,17 @@ public class EmployeeViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Employee>> getAllEmployees() {
+
+        Constraints constraints = new Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build();
+
         // execute the background work defined inside
         // the doWork() .
-        mWorkManager.enqueue(OneTimeWorkRequest.from(EmployeeWorker.class));
+        OneTimeWorkRequest request = new OneTimeWorkRequest.Builder(EmployeeWorker.class)
+            .setConstraints(constraints).build();
+
+        mWorkManager.enqueue(request);
 
         // list of employees are fetched and cached to room .
         return allEmployees;
