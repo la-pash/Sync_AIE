@@ -1,10 +1,16 @@
 package pasha.app.syncproject.Activities.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
+
 import pasha.app.syncproject.Room.Entities.Employee;
 import pasha.app.syncproject.R;
 
@@ -21,13 +27,29 @@ class EmployeeViewHolder extends RecyclerView.ViewHolder {
         employeeId = itemView.findViewById(R.id.employee_id);
     }
 
-    public void bind(Employee employee) {
+    private String getDate(long milliSeconds)
+    {
+        // Create a DateFormatter object for displaying date in specified format.
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm");
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
+    }
+
+    public void bind(Employee employee, Context context) {
         email.setText(employee.getEmail());
-        firstName.setText(employee.getFirst_name());
-        lastName.setText(employee.getLast_name());
-        lastUpdated.setText(employee.getLast_updated());
-        hiredDate.setText(employee.getHire_date());
-        employeeId.setText(employee.getEmployee_id());
+        firstName.setText(employee.getFirstName());
+        lastName.setText(employee.getLastName());
+        hiredDate.setText(employee.getHireDate());
+        employeeId.setText(String.valueOf(employee.getEmployeeId()));
+
+        long lastUpdatedMs = employee.getLast_updated();
+
+        // using string placeholder
+        // check string Resource
+        lastUpdated.setText(context.getString(R.string.last_updated,getDate(lastUpdatedMs)));
     }
 
     static EmployeeViewHolder create(ViewGroup parent) {
