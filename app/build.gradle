@@ -51,6 +51,7 @@ dependencies {
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitJsonConverter"
 
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
