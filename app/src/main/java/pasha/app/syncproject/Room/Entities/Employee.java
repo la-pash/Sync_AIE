@@ -7,63 +7,64 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "employee_table")
 public class Employee {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
-    private int employee_id;
+    private int employeeId;
 
     // names of vars are also used as in the SQL table
-    private String first_name;
-    private String last_name;
+    // name pattern taken from json response .
+    private String firstName;
+    private String lastName;
     private String email;
-    private int hire_date;
-    private int last_updated;
+    private String hireDate;
+    private long last_updated;
 
-    public void setHire_date(int hire_date) {
-        this.hire_date = hire_date;
+    public void setHireDate(String hireDate) {
+        this.hireDate = hireDate;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setEmployee_id(int employee_id) {
-        this.employee_id = employee_id;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_updated(int last_updated) {
-        this.last_updated = last_updated;
+    public void setLast_updated(long last_fetched) {
+        last_updated = last_fetched;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public int getLast_updated() {
+    public long getLast_updated() {
         return last_updated;
     }
 
-    public int getHire_date() {
-        return hire_date;
+    public String getHireDate() {
+        return hireDate;
     }
 
-    public int getEmployee_id() {
-        return employee_id;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
     public Employee() {}

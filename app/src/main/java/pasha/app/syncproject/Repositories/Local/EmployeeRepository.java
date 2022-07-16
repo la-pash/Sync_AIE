@@ -1,7 +1,9 @@
 package pasha.app.syncproject.Repositories.Local;
 
 import android.app.Application;
+
 import androidx.lifecycle.LiveData;
+
 import java.util.List;
 import pasha.app.syncproject.Room.Daos.EmployeeDao;
 import pasha.app.syncproject.Room.EmployeeRoomDatabase;
@@ -24,11 +26,10 @@ public class EmployeeRepository {
         return allEmployees;
     }
 
-    // this call should happen on a non-UI thread or your app will throw an exception. Room ensures
-    // that you're not doing any long running operations on the main thread, blocking the UI.
-    public void insert(Employee employee) {
-        EmployeeRoomDatabase.databaseWriteExecutor.execute(() -> {
-            employeeDao.addEmployee(employee);
-        });
+    public void insert(List<Employee> list,long lastFetched) {
+       for (Employee employee: list) {
+           employee.setLast_updated(lastFetched);
+           employeeDao.addEmployee(employee);
+       }
     }
 }

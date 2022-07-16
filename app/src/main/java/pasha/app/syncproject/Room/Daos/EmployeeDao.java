@@ -18,9 +18,6 @@ public interface EmployeeDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void addEmployee(Employee employee);
 
-    @Query("DELETE FROM employee_table")
-    void deleteAllEmployees();
-
-    @Query("SELECT * FROM employee_table ORDER BY employee_id ASC")
+    @Query("SELECT * FROM employee_table ORDER BY employeeId ASC")
     LiveData<List<Employee>> getEmployeesList();
 }
