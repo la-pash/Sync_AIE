@@ -28,10 +28,11 @@ Native Android App that display a list of employees fetched from api .
 
 ## Features
 
+-  TargetSdkVersion: 29 ( Android 10 ) .
 -  Displays A List of employees on the main UI .
 -  Uses Work Manager to run background services .
 -  Uses LiveData to subscribe to changes .
--  Uses Foreground Services .
+-  Uses Foreground Services with PeriodicWorkRequest introduced in WorkManager .
 
 ## Configuration
 
@@ -57,22 +58,22 @@ Make sure to have enabled androidx and included these following dependecies .
 ```bash
 pasha.app.syncproject
     ├
-  	├── acitivities
-    ├       ├── acitivities
-    ├       ├── adapters
+    ├── acitivities
+    ├────────├── acitivities
+    ├────────├── adapters
     ├
-  	├── repositories
-    ├       ├── local
-    ├       ├── external
+    ├── repositories
+    ├───────├── local
+    ├───────├── external
     ├
-  	├── room
-    ├    ├── entities
-    ├    ├── daos
-    ├    ├── roomDb.java
+    ├── room
+    ├────├── entities
+    ├────├── daos
+    ├────├── roomDb.java
     ├
-  	├── services
-  	├── viewModel
-  	├── BaseApp.java
+    ├── services
+    ├── viewModel
+    ├── BaseApp.java
 
 ```
 
